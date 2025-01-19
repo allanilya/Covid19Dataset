@@ -28,7 +28,7 @@ grouped_data.to_csv("cleaned_covid19_data.csv", index=False)
 
 country_options = [{'label': c, 'value': c} for c in sorted(grouped_data['Country/Region'].unique())]
 
-# Decided to make every visualizatiob interactive, a much easier process than using Matplotlib
+# Decided to make every visualization interactive, a much easier process than using Matplotlib
 def create_line_chart(data):
     top_data = data if data['Country/Region'].nunique() == 1 else data.nlargest(5, 'Deaths')
     return px.line(top_data, x='Country/Region', y=['Deaths', 'Confirmed'],
